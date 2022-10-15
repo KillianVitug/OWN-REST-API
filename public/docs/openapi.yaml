@@ -1,0 +1,497 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/user:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  /api/products:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  products:
+                    -
+                      id: 1
+                      title: Jacket
+                      description: 'Given Jacket Description'
+                      currency: PHP
+                      price: 1234.56
+                      brand: KuyaWill
+                      category: apparel
+                      image: 'https://netstorage-kami.akamaized.net/images/0fgjhs1shmj74jpi4g.jpg?&imwidth=1200'
+                      created_at: null
+                      updated_at: null
+                    -
+                      id: 2
+                      title: 'Updated Row'
+                      description: 'A Updated description'
+                      currency: PHP
+                      price: 555
+                      brand: Updated
+                      category: apparel
+                      image: 'https://cdnb.lystit.com/photos/eastbay/e8d37d10/nike-BlackWhite-Alumni-Shorts.jpeg'
+                      created_at: null
+                      updated_at: '2022-10-08T06:37:24.000000Z'
+                    -
+                      id: 4
+                      title: short
+                      description: 'A short description'
+                      currency: PHP
+                      price: 555
+                      brand: Nike
+                      category: apparel
+                      image: 'https://cdnb.lystit.com/photos/eastbay/e8d37d10/nike-BlackWhite-Alumni-Shorts.jpeg'
+                      created_at: '2022-10-08T06:35:01.000000Z'
+                      updated_at: '2022-10-08T06:35:01.000000Z'
+                properties:
+                  products:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        title: Jacket
+                        description: 'Given Jacket Description'
+                        currency: PHP
+                        price: 1234.56
+                        brand: KuyaWill
+                        category: apparel
+                        image: 'https://netstorage-kami.akamaized.net/images/0fgjhs1shmj74jpi4g.jpg?&imwidth=1200'
+                        created_at: null
+                        updated_at: null
+                      -
+                        id: 2
+                        title: 'Updated Row'
+                        description: 'A Updated description'
+                        currency: PHP
+                        price: 555
+                        brand: Updated
+                        category: apparel
+                        image: 'https://cdnb.lystit.com/photos/eastbay/e8d37d10/nike-BlackWhite-Alumni-Shorts.jpeg'
+                        created_at: null
+                        updated_at: '2022-10-08T06:37:24.000000Z'
+                      -
+                        id: 4
+                        title: short
+                        description: 'A short description'
+                        currency: PHP
+                        price: 555
+                        brand: Nike
+                        category: apparel
+                        image: 'https://cdnb.lystit.com/photos/eastbay/e8d37d10/nike-BlackWhite-Alumni-Shorts.jpeg'
+                        created_at: '2022-10-08T06:35:01.000000Z'
+                        updated_at: '2022-10-08T06:35:01.000000Z'
+                    items:
+                      type: object
+      tags:
+        - Endpoints
+      security: []
+  '/api/products/search/{keywords}':
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  products: []
+                properties:
+                  products:
+                    type: array
+                    example: []
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: keywords
+        description: ''
+        example: numquam
+        required: true
+        schema:
+          type: string
+  /api/products/categories:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      category: apparel
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        category: apparel
+                    items:
+                      type: object
+      tags:
+        - Endpoints
+      security: []
+  '/api/products/category/{category_name}':
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  products: []
+                properties:
+                  products:
+                    type: array
+                    example: []
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: category_name
+        description: ''
+        example: temporibus
+        required: true
+        schema:
+          type: string
+  /api/products/add:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: ''
+                  example: neque
+                description:
+                  type: string
+                  description: ''
+                  example: consequatur
+                currency:
+                  type: string
+                  description: ''
+                  example: dolorem
+                price:
+                  type: string
+                  description: ''
+                  example: enim
+                brand:
+                  type: string
+                  description: ''
+                  example: dolorum
+                category:
+                  type: string
+                  description: ''
+                  example: repellendus
+                image:
+                  type: string
+                  description: ''
+                  example: facere
+              required:
+                - title
+                - description
+                - currency
+                - price
+                - brand
+                - category
+                - image
+      security: []
+  '/api/products/{product_id}':
+    put:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: ''
+                  example: doloremque
+                description:
+                  type: string
+                  description: ''
+                  example: velit
+                currency:
+                  type: string
+                  description: ''
+                  example: veritatis
+                price:
+                  type: string
+                  description: ''
+                  example: in
+                brand:
+                  type: string
+                  description: ''
+                  example: sapiente
+                category:
+                  type: string
+                  description: ''
+                  example: dolores
+                image:
+                  type: string
+                  description: ''
+                  example: non
+              required:
+                - title
+                - description
+                - currency
+                - price
+                - brand
+                - category
+                - image
+      security: []
+    delete:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  products:
+                    id: 1
+                    title: Jacket
+                    description: 'Given Jacket Description'
+                    currency: PHP
+                    price: 1234.56
+                    brand: KuyaWill
+                    category: apparel
+                    image: 'https://netstorage-kami.akamaized.net/images/0fgjhs1shmj74jpi4g.jpg?&imwidth=1200'
+                    created_at: null
+                    updated_at: null
+                properties:
+                  products:
+                    type: object
+                    example:
+                      id: 1
+                      title: Jacket
+                      description: 'Given Jacket Description'
+                      currency: PHP
+                      price: 1234.56
+                      brand: KuyaWill
+                      category: apparel
+                      image: 'https://netstorage-kami.akamaized.net/images/0fgjhs1shmj74jpi4g.jpg?&imwidth=1200'
+                      created_at: null
+                      updated_at: null
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: product_id
+        description: 'The ID of the product.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+tags:
+  -
+    name: Endpoints
+    description: ''
